@@ -18,7 +18,7 @@ var ENTER_KEY_CODE = 13;
 var MessageComposer = React.createClass({
 
   getInitialState: function() {
-    return {text: ''};
+    return {text: '', author: ''};
   },
 
   render: function() {
@@ -29,7 +29,9 @@ var MessageComposer = React.createClass({
         value={this.state.text}
         onChange={this._onChange}
         onKeyDown={this._onKeyDown}
+        ref={message}
       />
+      <input type="text" value={this.state.author} />
     );
   },
 

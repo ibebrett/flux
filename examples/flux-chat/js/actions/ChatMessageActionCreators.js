@@ -26,6 +26,11 @@ module.exports = {
     });
     var message = MessageStore.getCreatedMessageData(text);
     ChatWebAPIUtils.createMessage(message);
+  },
+  removeMessage: function(id) {
+    ChatAppDispatcher.handleViewAction({
+      type: ActionTypes.REMOVE_MESSAGE,
+      id: id
+    });
   }
-
 };

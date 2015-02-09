@@ -66,6 +66,10 @@ var MessageStore = assign({}, EventEmitter.prototype, {
     return _messages;
   },
 
+  remove: function(id) {
+    delete _messages[id];
+  },
+
   /**
    * @param {string} threadID
    */
@@ -119,6 +123,11 @@ MessageStore.dispatchToken = ChatAppDispatcher.register(function(payload) {
     case ActionTypes.CREATE_MESSAGE:
       var message = MessageStore.getCreatedMessageData(action.text);
       _messages[message.id] = message;
+      MessageStore.emitChange();
+      break;
+
+    case ActionTypes.REMOVE_MESSAGE:
+      MessageStore.remove(action.id);
       MessageStore.emitChange();
       break;
 

@@ -10,6 +10,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+var ChatMessageActionCreators = require('../actions/ChatMessageActionCreators');
 var React = require('react');
 
 var ReactPropTypes = React.PropTypes;
@@ -18,6 +19,10 @@ var MessageListItem = React.createClass({
 
   propTypes: {
     message: ReactPropTypes.object
+  },
+
+  onRemove: function () {
+    ChatMessageActionCreators.removeMessage(this.props.message.id);
   },
 
   render: function() {
@@ -29,6 +34,7 @@ var MessageListItem = React.createClass({
           {message.date.toLocaleTimeString()}
         </div>
         <div className="message-text">{message.text}</div>
+        <div className="message-remove" onClick={this.onRemove}>remove</div>
       </li>
     );
   }

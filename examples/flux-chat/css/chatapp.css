@@ -81,6 +81,11 @@
   font-size: 12px;
 }
 
+.message-remove {
+  color: #aad;
+  font-size: 10px;
+}
+
 .message-text, .thread-last-message {
   clear: both;
   font-size: 14px;

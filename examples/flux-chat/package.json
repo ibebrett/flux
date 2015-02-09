@@ -19,6 +19,7 @@
     "watchify": "^2.1.1"
   },
   "scripts": {
+    "serve": "devserver",
     "start": "watchify -o js/bundle.js -v -d .",
     "build": "NODE_ENV=production browserify . | uglifyjs -cm > js/bundle.min.js",
     "test": "jest"
