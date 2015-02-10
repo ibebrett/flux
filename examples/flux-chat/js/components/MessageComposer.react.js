@@ -33,9 +33,7 @@ var MessageComposer = React.createClass({
         value={this.state.text}
         onChange={this._onChange}
         onKeyDown={this._onKeyDown}
-        ref={message}
       />
-      <input type="text" value={this.state.author} />
     );
   },
 
